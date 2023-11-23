@@ -17,7 +17,6 @@ from skimage.draw import circle
 
 import matplotlib.pyplot as plt
 import collections
-import wandb
 from skimage import img_as_ubyte, img_as_float32
 import cv2
 import numpy as np
@@ -43,7 +42,6 @@ class Logger:
 
     def log_scores(self, loss_names):
         loss_mean = np.array(self.loss_list).mean(axis=0)
-        wandb.log({name: value for name, value in zip(loss_names, loss_mean)}, step=self.epoch)
         loss_string = "; ".join(["%s - %.5f" % (name, value) for name, value in zip(loss_names, loss_mean)])
         loss_string = str(self.epoch).zfill(self.zfill_num) + ") " + loss_string
 
@@ -55,7 +53,6 @@ class Logger:
         image = self.visualizer.visualize(inp, out)
         path = os.path.join(self.visualizations_dir,
                             "%s-" % str(self.epoch).zfill(self.zfill_num) + self.train_mode + '.png')
-        wandb.log({'Reconstruction': wandb.Image(image)})
         imageio.imsave(path, image)
 
     def save_cpk(self, emergent=False):

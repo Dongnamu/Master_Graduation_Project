@@ -1,6 +1,6 @@
 # Motion Representations for Articulated Animation
 
-This repository contains the source code for the CVPR'2021 paper [Motion Representations for Articulated Animation](https://arxiv.org/abs/2104.11280) by [Aliaksandr Siarohin](https://aliaksandrsiarohin.github.io/aliaksandr-siarohin-website/), [Oliver  Woodford](https://ojwoodford.github.io/), [Jian Ren](https://alanspike.github.io/), [Menglei Chai](https://mlchai.com/) and [Sergey Tulyakov](http://www.stulyakov.com/). 
+This repository contains the code that is based on the CVPR'2021 paper [Motion Representations for Articulated Animation](https://arxiv.org/abs/2104.11280) by [Aliaksandr Siarohin](https://aliaksandrsiarohin.github.io/aliaksandr-siarohin-website/), [Oliver  Woodford](https://ojwoodford.github.io/), [Jian Ren](https://alanspike.github.io/), [Menglei Chai](https://mlchai.com/) and [Sergey Tulyakov](http://www.stulyakov.com/), and modified by **David Shin**.
 
 For more qualitiative examples visit our [project page](https://snap-research.github.io/articulated-animation/).
 
@@ -37,9 +37,9 @@ The result will be stored in ```result.mp4```. To use Animation via Disentagleme
 We prepared a demo runnable in google-colab, see: ```demo.ipynb```.
 
 
-### Training
+<!-- ### Training -->
 
-To train a model run:
+<!-- To train a model run:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python run.py --config config/dataset_name.yaml --device_ids 0
 ```
@@ -65,7 +65,7 @@ CUDA_VISIBLE_DEVICES=0 python run.py --config config/dataset_name.yaml --mode re
 Where ```{folder}``` is the name of the folder created in the previous step. (Note: use backslash '\' before space.)
 The ```reconstruction``` subfolder will be created in the checkpoint folder.
 The generated video will be stored to this folder, also generated videos will be stored in ```png``` subfolder in loss-less '.png' format for evaluation.
-Instructions for computing metrics from the paper can be found [here](https://github.com/AliaksandrSiarohin/pose-evaluation).
+Instructions for computing metrics from the paper can be found [here](https://github.com/AliaksandrSiarohin/pose-evaluation). -->
 
 ### TED dataset
 For obtaining TED dataset run the following commands:
@@ -75,16 +75,16 @@ cd video-preprocessing
 python load_videos.py --metadata ../data/ted384-metadata.csv --format .mp4 --out_folder ../data/TED384-v2 --workers 8 --image_shape 384,384
 ```
 
-### Training on your own dataset
-1) Resize all the videos to the same size, e.g 256x256, the videos can be in '.gif', '.mp4' or folder with images.
+<!-- ### Training on your own dataset -->
+<!-- 1) Resize all the videos to the same size, e.g 256x256, the videos can be in '.gif', '.mp4' or folder with images.
 We recommend the latter, for each video make a separate folder with all the frames in '.png' format. This format is loss-less, and it has better i/o performance.
 
 2) Create a folder ```data/dataset_name``` with 2 subfolders ```train``` and ```test```, put training videos in the ```train``` and testing in the ```test```.
 
-3) Create a config file ```config/dataset_name.yaml```. See description of the parameters in the ```config/vox256.yaml```.  Specify the dataset root in dataset_params specify by setting  ```root_dir:  data/dataset_name```.  Adjust other parameters as desired, such as the number of epochs for example. Specify ```id_sampling: False``` if you do not want to use id_sampling.
+3) Create a config file ```config/dataset_name.yaml```. See description of the parameters in the ```config/vox256.yaml```.  Specify the dataset root in dataset_params specify by setting  ```root_dir:  data/dataset_name```.  Adjust other parameters as desired, such as the number of epochs for example. Specify ```id_sampling: False``` if you do not want to use id_sampling. -->
 
 
-#### Additional notes
+<!-- #### Additional notes
 
 Citation: 
 ```
@@ -94,5 +94,5 @@ Citation:
         booktitle = {CVPR},
         year = {2021}
 }
-```
+``` -->
 
