@@ -1,0 +1,3 @@
+checkpoints/*.pth
+log
+__pycache__
